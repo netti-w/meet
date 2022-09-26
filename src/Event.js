@@ -19,7 +19,8 @@ class Event extends Component {
         </div>
         {this.state.show && (
           <div className="event-details">
-            <p>About the event: {event.description}</p>
+            <p>About the event:</p>
+            <p>{event.description}</p>
           </div>
         )}
         {!this.state.show ? (
