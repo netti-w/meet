@@ -55,7 +55,7 @@ describe('<App /> integration', () => {
     await CitySearchWrapper.instance().handleItemClicked(selectedCity);
     const allEvents = await getEvents();
     const eventsToShow = allEvents.filter(event => event.location === selectedCity);
-    expect(AppWrapper.state('events')).toEqual(eventsToShow);
+    expect(AppWrapper.state('events')).toEqual(eventsToShow.slice(0, 10));
     AppWrapper.unmount();
   });
 
@@ -64,7 +64,33 @@ describe('<App /> integration', () => {
     const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
     await suggestionItems.at(suggestionItems.length - 1).simulate('click');
     const allEvents = await getEvents();
-    expect(AppWrapper.state('events')).toEqual(allEvents);
+    expect(AppWrapper.state('events')).toEqual(allEvents.slice(0, 10));
+    AppWrapper.unmount();
+  });
+
+  test('App passes "numberOfEvents" state as a prop to NumberOfEvents', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(AppNumberState);
+    AppWrapper.unmount();
+  });
+
+  test('App passes "numberOfEvents" state as a prop to EventList', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberState).not.toEqual(undefined);
+    expect(AppWrapper.find(EventList).props().numberOfEvents).toEqual(AppNumberState);
+    AppWrapper.unmount();
+  });
+
+  test('get list of events matching the number of events inputted by the user', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const numberInput = Math.floor(Math.random() * (10));
+    const eventObject = { target: { value: numberInput } };
+    await NumberOfEventsWrapper.find('.number-input').simulate('change', eventObject);
+    expect(AppWrapper.state('numberOfEvents')).toEqual(numberInput);
     AppWrapper.unmount();
   });
 });
