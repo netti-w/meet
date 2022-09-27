@@ -38,7 +38,12 @@ input[type="number"] {
   height: 38px;
 }
 
+input:hover {
+  border: 2px solid #ccc;
+}
+
 .city {
+  margin: 10px 8px 10px 8px;
   width: 250px;
 }
 
@@ -79,22 +84,58 @@ input[type="number"] {
 }
 
 .event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
+  padding: 10px 15px 35px;
+  margin-top: 20px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
 }
 
-.details-btn {
+.event-info {
+  padding: 0px 5px 20px 0px;
+  text-align: left;
+  position: relative;
+}
+
+.event-details {
+  padding: 0px 5px 20px 0px;
+  text-align: left;
+  position: relative;
+}
+
+.event-showDetails-btn {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
+  right: 15px;
+  bottom: 15px;
+  padding: 8px 10px;
   border-radius: 4px;
+  border: none;
   outline: none;
+  background-color: #bcdcdb;
+  font-size: 16px;
   cursor: pointer;
+}
+
+.event-showDetails-btn:hover {
+  background-color: #92cecc;
+}
+
+.event-hideDetails-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background-color: #bcdcdb;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.event-hideDetails-btn:hover {
+  background-color: #92cecc;
 }
 
 .name {
@@ -206,8 +247,6 @@ input[type="number"] {
   letter-spacing: 0.2px;
   font-family: "Roboto";
 }
-
-
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
