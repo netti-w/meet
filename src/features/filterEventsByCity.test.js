@@ -41,7 +41,6 @@ defineFeature(feature, test => {
     });
   });
 
-
   test('User can select a city from the suggested list', ({ given, and, when, then }) => {
     let AppWrapper;
     given('user was typing “Berlin” in the city textbox', async () => {
