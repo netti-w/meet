@@ -43,36 +43,36 @@ And the user should receive a list of upcoming events in that city
 As a user, I should be able to view and hide an event's details, so that I get more information about the event.
 ##### Scenario 1: An event element is collapsed by default
 ```
-Given the list of event elements is loaded
-When no event is selected
+Given the user hasn’t opened the app
+When the user opens the app
 Then the event elements are collapsed
 ```
 ##### Scenario 2: User can expand an event to see its details
 ```
 Given the list of event elements is loaded
-When an event is selected by clicking the "details" button
+When an event is selected by clicking the “details“ button
 Then the event element will expand showing event details
 ```
 ##### Scenario 3: User can collapse an event to hide its details
 ```
 Given the details of an event element are displayed
-When clicking the "hide" button
-Then the event details are collapsed again.
+When clicking the “hide“ button
+Then the event details are collapsed again
 ```
 ---
 ### Specify Number of Events
 As a user, I should be able to specify the number of events, so that I can restrict or expand my number of event options. 
-##### Scenario 1: When user hasn’t specified a number, 32 is the default number
+##### Scenario 1: When user hasn’t specified a number, 10 is the default number
 ```
-Given that the user sees a list of upcoming events 
-When the user hasn’t spefified the number of events
-Then the default number of events displayed will be 32.
+Given user hasn’t entered any number of events 
+When the user opens the app
+Then the default number will be displayed
 ```
 ##### Scenario 2: User can change the number of events they want to see
 ```
-Given the user has selected a city (or no city)
-When the user enters a number of events
-Then the user will see that specific number of events. 
+Given the main page is open
+When the user enters a number of events (e.g., “6”)
+Then the user will see that specific number of events 
 ```
 ---
 ### Use the App when Offline
