@@ -7,5 +7,5 @@ Then the default number will be displayed
 
 Scenario: User can change the number of events they want to see
 Given the main page is open
-When the user enters a number of events
+When the user enters a number of events (e.g., “6”)
 Then the user will see that specific number of events 

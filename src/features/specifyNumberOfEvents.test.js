@@ -29,7 +29,7 @@ defineFeature(feature, test => {
       AppWrapper = mount(<App />);
     });
 
-    when('the user enters a number of events', () => {
+    when('the user enters a number of events (e.g., “6”)', () => {
       AppWrapper.update();
       let NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
       const eventObject = { target: { value: 6 } };
