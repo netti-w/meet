@@ -53,6 +53,7 @@ input:hover {
   flex-basis: 300px;
   max-width: 300px;
   margin: auto;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -175,9 +176,28 @@ input:hover {
   font-family: sans-serif;
 }
 
-.Alert {
+/* .Alert {
   position: fixed;
   top: 20px;
+} */
+
+.alert {
+  position: relative;
+  font-size: 14px;
+  text-align: center;
+
+}
+
+.info-alert {
+  position: absolute;
+  bottom: 42px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.error-alert {
+  margin-bottom: 10px;
+  margin-left: -30px;
 }
 
 .data-vis-wrapper {
