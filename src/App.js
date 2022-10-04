@@ -4,8 +4,10 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, extractLocations } from './api';
+import WelcomeScreen from './WelcomeScreen';
+import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { WarningAlert } from './Alert';
+
 
 class App extends Component {
   constructor() {
@@ -15,7 +17,8 @@ class App extends Component {
       locations: [],
       numberOfEvents: 10,
       selectedLocation: 'all',
-      warningText: ''
+      warningText: '',
+      showWelcomeScreen: undefined
     }
   }
 
@@ -41,16 +44,21 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({
-          events,
-          locations: extractLocations(events)
-        });
-      }
-    });
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false :
+      true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({ events, locations: extractLocations(events) });
+        }
+      });
+    };
 
     if (!navigator.onLine) {
       this.setState({
@@ -60,7 +68,7 @@ class App extends Component {
       this.setState({
         warningText: '',
       });
-    }
+    };
   }
 
   componentWillUnmount() {
@@ -68,14 +76,17 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.showWelcomeScreen === undefined) return <div
+      className="App" />
+
     return (
       <div className="App">
         <WarningAlert text={this.state.warningText} />
-        {/* {navigator.onLine && (
-          <WarningAlert text={"You're currently offline. Updating your events won't work in offline mode."} />)} */}
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} />
         <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents} />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }
