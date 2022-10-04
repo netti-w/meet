@@ -5,6 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
   constructor() {
@@ -58,6 +59,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {!navigator.onLine && (
+          <WarningAlert text={"You're currently offline. Updating your events won't work in offline mode."} />)}
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} />
         <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents} />
