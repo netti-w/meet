@@ -14,7 +14,8 @@ class App extends Component {
       events: [],
       locations: [],
       numberOfEvents: 10,
-      selectedLocation: 'all'
+      selectedLocation: 'all',
+      warningText: ''
     }
   }
 
@@ -50,6 +51,16 @@ class App extends Component {
         });
       }
     });
+
+    if (!navigator.onLine) {
+      this.setState({
+        warningText: "Your're offline! Updating your events won't work in offline mode.",
+      });
+    } else {
+      this.setState({
+        warningText: '',
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -59,8 +70,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {!navigator.onLine && (
-          <WarningAlert text={"You're currently offline. Updating your events won't work in offline mode."} />)}
+        <WarningAlert text={this.state.warningText} />
+        {/* {navigator.onLine && (
+          <WarningAlert text={"You're currently offline. Updating your events won't work in offline mode."} />)} */}
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} />
         <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents} />
