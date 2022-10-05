@@ -30,17 +30,8 @@ const getToken = async (code) => {
   return access_token;
 };
 
-const checkToken = async (accessToken) => {
-  const result = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  )
-    .then((res) => res.json())
-    .catch((error) => error.json());
-
-  return result;
-};
-
-// export const checkToken = async (accessToken) => {
+// --> LOCAL TESTING <--
+// const checkToken = async (accessToken) => {
 //   const result = await fetch(
 //     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
 //   )
@@ -49,6 +40,16 @@ const checkToken = async (accessToken) => {
 
 //   return result;
 // };
+
+export const checkToken = async (accessToken) => {
+  const result = await fetch(
+    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+  )
+    .then((res) => res.json())
+    .catch((error) => error.json());
+
+  return result;
+};
 
 const removeQuery = () => {
   if (window.history.pushState && window.location.pathname) {
