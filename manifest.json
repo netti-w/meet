@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "meet App",
+  "name": "meet App created with React",
   "icons": [
     {
       "src": "favicon-1.ico",
@@ -15,7 +15,7 @@
       "purpose": "any maskable"
     },
     {
-      "src": "meet-app-1-512.png",
+      "src": "meet-app-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
