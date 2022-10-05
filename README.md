@@ -94,7 +94,8 @@ Then an error will show
 As a user, I should be able to see the upcoming events in a chart, so that I have an overview of the amount of events per city.
 ##### Scenario 1: Show a chart with the number of upcoming events in each city
 ```
-Given the user has selected a city 
-When the user clicks on the button "Upcoming events" of the city
-Then a chart will list the upcoming events taking place in that city
+Given the user hasn’t opened the app
+When the user opens the app
+Then a chart will list the upcoming events taking place in all cities - unless the city is further defined
+And a chart will list the percentage of event genres for all cities - unless the city is further defined - unless the city is further defined
 ```

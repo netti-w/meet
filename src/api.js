@@ -30,34 +30,7 @@ const getToken = async (code) => {
   return access_token;
 };
 
-// get Token method with try ... catch statement
-// const getToken = async (code) => {
-//   try {
-//       const encodeCode = encodeURIComponent(code);
-
-//       const response = await fetch( 'https://egv6tyztz9.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
-//       if (!response.ok) {
-//           throw new Error(`HTTP error! status: ${response.status}`)
-//       }
-//       const { access_token } = await response.json();
-//       access_token && localStorage.setItem("access_token", access_token);
-//       return access_token;
-//   } catch(error) {
-//       error.json();
-//   }
-// }
-
-// const checkToken = async (accessToken) => {
-//   const result = await fetch(
-//     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-//   )
-//     .then((res) => res.json())
-//     .catch((error) => error.json());
-
-//   return result;
-// };
-
-export const checkToken = async (accessToken) => {
+const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
@@ -66,6 +39,16 @@ export const checkToken = async (accessToken) => {
 
   return result;
 };
+
+// export const checkToken = async (accessToken) => {
+//   const result = await fetch(
+//     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+//   )
+//     .then((res) => res.json())
+//     .catch((error) => error.json());
+
+//   return result;
+// };
 
 const removeQuery = () => {
   if (window.history.pushState && window.location.pathname) {

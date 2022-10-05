@@ -16,23 +16,14 @@ class NumberOfEvents extends Component {
     if (event.target.value <= 0) {
       this.setState({
         numberOfEvents: value,
-        errorText: 'Please enter a number greater than 0, so you see events',
-        // warningText: '',
+        errorText: 'Please enter a number greater than 0, so you see a list of events.',
       })
     }
-    // else if (event.target.value > 40) {
-    //   this.setState({
-    //     numberOfEvents: value,
-    //     warningText: 'Searching for more than 40 events may cause the app a longer time to display the results.',
-    //     errorText: '',
-    //   })
-    // }
     else {
       this.props.updateEvents(undefined, event.target.value);
       this.setState({
         numberOfEvents: value,
         errorText: '',
-        // warningText: '',
       });
     }
   }
@@ -48,7 +39,6 @@ class NumberOfEvents extends Component {
           onChange={this.handleInputChanged} /> Events</p>
           <div>
             <ErrorAlert text={this.state.errorText} />
-            {/* <WarningAlert text={this.state.warningText} /> */}
           </div>
 
         </div>

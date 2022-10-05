@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&family=Signika:wght@300;400;600&display=swap);
-
-
 .WelcomeScreen {
   box-sizing: border-box;
   position: fixed;
@@ -12,14 +9,14 @@
   background: #fff;
 }
 
-h1 {
+.welcome-title {
   margin: auto;
-  padding-top: 50px;
+  padding-top: 0px;
   padding-bottom: 5px;
   color: #fe6d73;
 }
 
-h4 {
+.welcome-subtitle {
   margin: auto;
   padding-top: 15px;
   font-weight: 400;
@@ -96,5 +93,5 @@ a:hover {
   /* border-color: #4285f4; */
   width: 80%;
   height: 100%;
-  text-align: center;
+  /* text-align: center; */
 }

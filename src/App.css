@@ -16,24 +16,26 @@ ul {
 
 p {
   margin: 5px 0;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
 }
 
 h1 {
   margin: auto;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 h2 {
   margin: auto;
   padding-top: 15px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
+  text-align: left;
 }
 
 h4 {
   margin: auto;
-  font-weight: 400;
+  font-weight: 500;
+  padding-bottom: 5px;
 }
 
 .title {
@@ -44,7 +46,7 @@ h4 {
 
 .sub-title {
   padding-bottom: 30px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .display-none {
@@ -114,8 +116,6 @@ input:hover {
 }
 
 .event {
-  /* display: flex;
-  flex-direction: column; */
   padding: 10px 15px 15px;
   margin-top: 20px;
   margin-left: 10px;
@@ -201,6 +201,7 @@ input:hover {
 .numberOfEvents {
   width: 200px;
   margin: 20px auto;
+  padding-bottom: 20px;
   text-align: center;
 }
 
@@ -214,7 +215,6 @@ input:hover {
 
 .alert {
   position: relative;
-  font-size: 12px;
   text-align: center;
 
 }
@@ -226,7 +226,16 @@ input:hover {
 
 .error-alert {
   margin-bottom: 10px;
-  margin-left: -30px;
+  font-size: 14px;
+}
+
+.warning-alert {
+  position: relative;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+
 }
 
 .data-vis-wrapper {
