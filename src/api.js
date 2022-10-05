@@ -47,7 +47,7 @@ const getToken = async (code) => {
 //   }
 // }
 
-export const checkToken = async (accessToken) => {
+const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
@@ -56,6 +56,16 @@ export const checkToken = async (accessToken) => {
 
   return result;
 };
+
+// export const checkToken = async (accessToken) => {
+//   const result = await fetch(
+//     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+//   )
+//     .then((res) => res.json())
+//     .catch((error) => error.json());
+
+//   return result;
+// };
 
 const removeQuery = () => {
   if (window.history.pushState && window.location.pathname) {
