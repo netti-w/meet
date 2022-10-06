@@ -110,7 +110,7 @@ App screen:
 ![](screenshots/meet_app_screen.png)
 
 App event list screen:
-![](screenshots/meet_event_list.png)d
+![](screenshots/meet_event_list.png)
 
 ## Project Repository
 [meet](https://github.com/netti-w/meet)
