@@ -13,6 +13,8 @@ The app provides a list of upcoming events for any given city, with data provide
 - React DOM
 - React Scripts
 - Axios
+- NProgress
+- Recharts
 - Google Calendar API (incl OAuth2 authentication)
 
 ## Key Features & User Stories
@@ -97,5 +99,21 @@ As a user, I should be able to see the upcoming events in a chart, so that I hav
 Given the user hasn’t opened the app
 When the user opens the app
 Then a chart will list the upcoming events taking place in all cities - unless the city is further defined
-And a chart will list the percentage of event genres for all cities - unless the city is further defined - unless the city is further defined
+And a chart will list the percentage of event genres for all cities - unless the city is further defined
 ```
+
+## Project screenshots
+Login screen:
+![](screenshots/meet_login_screen.png)
+
+App screen:
+![](screenshots/meet_app_screen.png)
+
+App event list screen:
+![](screenshots/meet_event_list.png)d
+
+## Project Repository
+[meet](https://github.com/netti-w/meet)
+
+## Project link
+[meet App](https://netti-w.github.io/meet/)
