@@ -5,18 +5,6 @@ This is an progressive web application (PWA) that is built with React using a te
 
 The app provides a list of upcoming events for any given city, with data provided by Google Calendar. The app works offline using cached data from the last time it was used online. The user can search for events in a specific city or browse all events, customize how many events are shown on screen, click an event for more details, and see how many events are upcoming in certain cities.
 
-## Dependencies:
-- HTML5
-- CSS
-- Javascript
-- React
-- React DOM
-- React Scripts
-- Axios
-- NProgress
-- Recharts
-- Google Calendar API (incl OAuth2 authentication)
-
 ## Key Features & User Stories
 ### Filter events by city
 As a user, I should be able to “filter events by city”, so that I can see the list of events that take place in that city.
@@ -101,6 +89,46 @@ When the user opens the app
 Then a chart will list the upcoming events taking place in all cities - unless the city is further defined
 And a chart will list the percentage of event genres for all cities - unless the city is further defined
 ```
+
+## Getting Started
+Before installing the app, make sure you have a recent version of Node and npm installed. To get a local copy up and running follow these steps. 
+
+### Prerequisites
+- [Node.js](https://nodejs.org/en/download/)
+- npm
+```
+npm install -g npm
+```
+
+### Installation
+ 
+1. Clone the Github repo to your local machine
+- Make a copy of this [GitHub repository](https://netti-w.github.io/meet/) and save it on your local machine by either downloading it as a zip file or using the git command in your terminal:
+```
+git clone https://netti-w.github.io/meet/
+```
+2. Install local dependencies
+- Head to the root directory of your repo in your terminal and install all local dependencies by typing the following command in your terminal:
+```
+npm install
+```
+### Run application locally
+To run the app locally, run `npm run start` for a dev server and navigate to `http://localhost:3000/`.
+
+### Usage
+(See key features)
+
+## Dependencies:
+- HTML5
+- CSS
+- Javascript
+- React
+- React DOM
+- React Scripts
+- Axios
+- NProgress
+- Recharts
+- Google Calendar API (incl OAuth2 authentication)
 
 ## Project screenshots
 Login screen:
