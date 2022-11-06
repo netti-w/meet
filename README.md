@@ -1,7 +1,7 @@
 # meet
 
 ## Description
-This is an progressive web application (PWA) that is built with React using a test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
+This is a progressive web application (PWA) that is built with React using a test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
 
 The app provides a list of upcoming events for any given city, with data provided by Google Calendar. The app works offline using cached data from the last time it was used online. The user can search for events in a specific city or browse all events, customize how many events are shown on screen, click an event for more details, and see how many events are upcoming in certain cities.
 
